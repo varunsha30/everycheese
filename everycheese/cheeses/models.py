@@ -1,6 +1,7 @@
 from django.db import models
 from model_utils.models import TimeStampedModel
 from autoslug import AutoSlugField
+
 # Create your models here.
 
 
