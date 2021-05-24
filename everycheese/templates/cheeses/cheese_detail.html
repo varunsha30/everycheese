@@ -12,4 +12,10 @@
 <p>{{ cheese.description }}</p>
 {% endif %}
 
+{% if cheese.country %}
+<p>{{ cheese.country.name }}
+    <img src="{{ cheese.country.flag }}" />
+</p>
+{% endif %}
+
 {% endblock content %}
