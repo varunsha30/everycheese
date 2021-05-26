@@ -2,6 +2,7 @@ from django.db import models
 from model_utils.models import TimeStampedModel
 from autoslug import AutoSlugField
 from django_countries.fields import CountryField
+from django.conf import settings
 from django.urls import reverse
 
 # Create your models here.
@@ -21,6 +22,7 @@ class Cheese(TimeStampedModel):
     description = models.TextField("Description", blank=True)
     firmness = models.CharField("Firmness", max_length=20, choices=Firmness.choices, default=Firmness.UNSPECIFIED)
     country = CountryField("Country of origin", blank=True)
+    creator = models.ForeignKey(settings.AUTH_USER_MODEL, null=True, on_delete=models.SET_NULL)
 
     def __str__(self):
         return self.name
